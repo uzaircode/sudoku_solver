@@ -1,38 +1,56 @@
+
+// sudoku solver
 public class SudokuSolver {
     private static final int GRID_SIZE = 9;
 
     public static void main(String[] args) {
         int[][] board = {
-                { 7, 0, 2, 0, 5, 0, 6, 0, 0 },
-                { 0, 0, 0, 0, 0, 3, 0, 0, 0 },
-                { 1, 0, 0, 0, 0, 9, 5, 0, 0 },
-                { 8, 0, 0, 0, 0, 0, 0, 9, 0 },
-                { 0, 4, 3, 0, 0, 0, 7, 5, 0 },
+                { 7, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 9, 5, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 1, 0, 0, 0, 0 },
                 { 0, 9, 0, 0, 0, 0, 0, 0, 8 },
-                { 0, 0, 9, 7, 0, 0, 0, 0, 5 },
-                { 0, 0, 0, 2, 0, 0, 0, 0, 0 },
-                { 0, 0, 7, 0, 4, 0, 2, 0, 3 }
+                { 0, 0, 0, 7, 0, 0, 0, 0, 5 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 7, 0, 0, 0, 0, 0, 0 }
+                // {9, 1, 7, 0, 0, 3, 0, 2, 0},
+                // {3, 0, 2, 6, 0, 0, 8, 5, 0},
+                // {0, 8, 0, 1, 0, 9, 4, 0, 7},
+                // {0, 3, 8, 0, 4, 0, 1, 0, 0},
+                // {5, 6, 1, 9, 3, 0, 0, 0, 0},
+                // {7, 2, 0, 8, 0, 5, 0, 0, 4},
+                // {0, 9, 0, 0, 7, 4, 0, 0, 2},
+                // {1, 0, 0, 0, 9, 2, 0, 0, 0},
+                // {0, 5, 0, 0, 0, 0, 0, 7, 0}
         };
 
+        // getting a random and newly generated sudoku
+        // int[][] board = RandomSudoku.generateRandomSudoku();
+        // int[][] board = SudokuGenerator.generate();
+        System.out.print("\nThe Sudoku Board : ");
+        printBoard(board);
+        
         if (solveBoard(board)) {
-            System.out.println("\nSolve Successfully");
+            System.out.print("\n\nSolve Successfully");
 
         } else {
 
-            System.out.println("\nUnsolvable board");
+            System.out.print("\n\nUnsolvable board");
         }
         printBoard(board);
 
     }
 
+    // for the sake of grids and . in sudoku boards
     public static void printBoard(int[][] board) {
         for (int i = 0; i < 9; i++) {
             System.out.print("\n");
             if (i % 3 == 0)
-                System.out.print("\n");
+                System.out.print("-------------------------\n");
             for (int j = 0; j < 9; j++) {
                 if (j % 3 == 0)
-                    System.out.print(" ");
+                    System.out.print("| ");
                 if (board[i][j] == 0)
                     System.out.print(". ");
                 if (board[i][j] == 1)
@@ -54,7 +72,10 @@ public class SudokuSolver {
                 if (board[i][j] == 9)
                     System.out.print("9 ");
             }
+            System.out.print("| ");
         }
+        System.out.print("\n-------------------------");
+
     }
 
     private static boolean isNumberInRow(int[][] board, int number, int row) {
