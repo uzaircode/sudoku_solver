@@ -1,5 +1,8 @@
 import java.util.Random;
 
+// STATUS : WORKING
+// OUTPUT : Only 9x9 sudoku board, no answers
+
 public class RandomSudoku {
     static int[][] sudoku = new int[9][9];
     static Random random = new Random();

@@ -1,5 +1,7 @@
 import java.util.Random;
 
+// STATUS : NOT RUNNING
+
 public class SudokuGenerator {
     private int[][] sudoku = new int[9][9];
     private Random random = new Random();

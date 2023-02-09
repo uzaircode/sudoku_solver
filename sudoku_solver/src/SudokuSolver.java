@@ -1,5 +1,8 @@
 
 // sudoku solver
+// STATUS : WORKING
+// OUTPUT : Completed solution with grids OR No solution
+
 public class SudokuSolver {
     private static final int GRID_SIZE = 9;
 
@@ -14,6 +17,8 @@ public class SudokuSolver {
                 { 0, 0, 0, 7, 0, 0, 0, 0, 5 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 7, 0, 0, 0, 0, 0, 0 }
+
+                // unsolvable
                 // {9, 1, 7, 0, 0, 3, 0, 2, 0},
                 // {3, 0, 2, 6, 0, 0, 8, 5, 0},
                 // {0, 8, 0, 1, 0, 9, 4, 0, 7},

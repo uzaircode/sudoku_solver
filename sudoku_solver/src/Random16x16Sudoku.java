@@ -1,5 +1,8 @@
 import java.util.Random;
 
+// STATUS : WORKING
+// OUTPUT : Only 16x16 sudoku board, no answers
+
 public class Random16x16Sudoku {
     static char[][] sudoku = new char[16][16];
     static Random random = new Random();

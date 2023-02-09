@@ -1,5 +1,7 @@
-/* A Backtracking program in
-Java to solve Sudoku problem */
+/* A Backtracking program in Java to solve Sudoku problem */
+// STATUS : WORKING
+// OUTPUT : No solution OR completed solution
+
 class NewSudokuSolver
 {
 	public static boolean isSafe(int[][] board,

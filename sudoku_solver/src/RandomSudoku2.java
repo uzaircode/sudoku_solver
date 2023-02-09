@@ -1,6 +1,7 @@
 import java.util.Random;
 
-// generating random sudoku boards - with answers
+// STATUS : WORKING
+// OUTPUT : generating 9x9 random, completed sudoku boards - with WRONG answers
 
 public class RandomSudoku2 {
     static int[][] sudoku = new int[9][9];
