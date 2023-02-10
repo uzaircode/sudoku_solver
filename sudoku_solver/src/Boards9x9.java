@@ -5,7 +5,7 @@ import java.util.ArrayList;
 // STATUS : WORKING WELL
 // OUTPUT : 5 boards with solutions, including duration to complete solution, ended with average of time taken for each board to complete
 
-public class Boards {
+public class Boards9x9 {
 
     public static void main(String[] args) {
         ArrayList<int[][]> boards = new ArrayList<int[][]>();
@@ -80,12 +80,6 @@ public class Boards {
         for (int i = 0; i < boards.size(); i++) {
             System.out.println("\nBoard " + (i + 1) + ":");
             SS.startGame(boards.get(i));
-            // for (int j = 0; j < 9; j++) {
-            //     for (int k = 0; k < 9; k++) {
-            //         System.out.print(boards.get(i)[j][k] + " ");
-            //     }
-            //     System.out.println();
-            // }
             System.out.println();
         }
 
