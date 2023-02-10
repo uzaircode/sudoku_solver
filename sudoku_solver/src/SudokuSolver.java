@@ -5,47 +5,28 @@
 
 public class SudokuSolver {
     private static final int GRID_SIZE = 9;
+    public static long totalTime=0;
 
-    public static void main(String[] args) {
-        int[][] board = {
-                { 7, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 9, 5, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 1, 0, 0, 0, 0 },
-                { 0, 9, 0, 0, 0, 0, 0, 0, 8 },
-                { 0, 0, 0, 7, 0, 0, 0, 0, 5 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 7, 0, 0, 0, 0, 0, 0 }
-
-                // unsolvable
-                // {9, 1, 7, 0, 0, 3, 0, 2, 0},
-                // {3, 0, 2, 6, 0, 0, 8, 5, 0},
-                // {0, 8, 0, 1, 0, 9, 4, 0, 7},
-                // {0, 3, 8, 0, 4, 0, 1, 0, 0},
-                // {5, 6, 1, 9, 3, 0, 0, 0, 0},
-                // {7, 2, 0, 8, 0, 5, 0, 0, 4},
-                // {0, 9, 0, 0, 7, 4, 0, 0, 2},
-                // {1, 0, 0, 0, 9, 2, 0, 0, 0},
-                // {0, 5, 0, 0, 0, 0, 0, 7, 0}
-        };
-
-        // getting a random and newly generated sudoku
-        // int[][] board = RandomSudoku.generateRandomSudoku();
-        // int[][] board = SudokuGenerator.generate();
+    public static void startGame (int[][] board) {
+        
         System.out.print("\nThe Sudoku Board : ");
         printBoard(board);
-        
-        if (solveBoard(board)) {
-            System.out.print("\n\nSolve Successfully");
 
+        // counting Duration
+        long start = System.currentTimeMillis();
+        if (solveBoard(board)) {
+            long end = System.currentTimeMillis();
+            long time = end-start;
+            System.out.println("\n\nDuration (s): " + time / 1000.0);
+            totalTime += time;
+            System.out.print("\nSolve Successfully");
         } else {
 
             System.out.print("\n\nUnsolvable board");
         }
         printBoard(board);
-
     }
+
 
     // for the sake of grids and . in sudoku boards
     public static void printBoard(int[][] board) {
