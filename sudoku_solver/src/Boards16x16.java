@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 // initializing 9x9 boards - all 'evil' level from https://sudoku.com/evil/
-// call 9X9 from main 
+// call 16X16 from main 
 // STATUS : WORKING WELL
-// OUTPUT : 5 boards with solutions, including duration to complete solution, ended with average of time taken for each board to complete
+// Only 1 board provided considering the long time to solve one 16x16 board
 
 public class Boards16x16 {
 
@@ -116,18 +116,13 @@ public class Boards16x16 {
                 for (int i = 0; i < boards.size(); i++) {
                         System.out.println("\nBoard " + (i + 1) + ":");
                         SS.startGame(boards.get(i));
-                        // for (int j = 0; j < 9; j++) {
-                        // for (int k = 0; k < 9; k++) {
-                        // System.out.print(boards.get(i)[j][k] + " ");
-                        // }
-                        // System.out.println();
-                        // }
                         System.out.println();
                 }
 
                 displayAverage(SS.totalTime);
         }
 
+        // To display average time taken to solve each board
         public static void displayAverage(long TT) {
                 System.out.println("Average time is " + (TT / 1000.0) / 5);
         }

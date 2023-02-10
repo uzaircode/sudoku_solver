@@ -3,8 +3,8 @@
 // STATUS : WORKING
 // OUTPUT : Completed solution with grids OR No solution
 
-public class SudokuSolver {
-    private static final int GRID_SIZE = 9;
+public class SudokuSolver9x9 {
+    private static final int GRID_SIZE = 9; // for 9x9 board
     public static long totalTime=0;
 
     public static void startGame (int[][] board) {
@@ -12,7 +12,7 @@ public class SudokuSolver {
         System.out.print("\nThe Sudoku Board : ");
         printBoard(board);
 
-        // counting Duration
+        // count Duration before and after calling solveBoard
         long start = System.currentTimeMillis();
         if (solveBoard(board)) {
             long end = System.currentTimeMillis();
@@ -74,7 +74,7 @@ public class SudokuSolver {
         return false;
     }
 
-    private static boolean isNumberInCollumn(int[][] board, int number, int col) {
+    private static boolean isNumberInColumn(int[][] board, int number, int col) {
         for (int i = 0; i < GRID_SIZE; i++) {
             if (board[i][col] == number) {
 
@@ -99,7 +99,7 @@ public class SudokuSolver {
     }
 
     private static boolean isValidPlacement(int[][] board, int number, int row, int col) {
-        return !isNumberInRow(board, number, row) && !isNumberInCollumn(board, number, col)
+        return !isNumberInRow(board, number, row) && !isNumberInColumn(board, number, col)
                 && !isNumberInBox(board, number, row, col);
 
     }
