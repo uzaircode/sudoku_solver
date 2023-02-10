@@ -4,7 +4,7 @@
 // OUTPUT : Completed solution with grids OR No solution
 
 public class SudokuSolver16x16 {
-    private static final int GRID_SIZE = 16;
+    private static final int GRID_SIZE = 16; // for 16x16 board
     public static long totalTime = 0;
 
     public static void startGame(int[][] board) {
@@ -12,7 +12,7 @@ public class SudokuSolver16x16 {
         System.out.print("\nThe Sudoku Board : ");
         printBoard(board);
 
-        // counting Duration
+        // count Duration before and after calling solveBoard
         long start = System.currentTimeMillis();
         if (solveBoard(board)) {
             long end = System.currentTimeMillis();
@@ -76,7 +76,8 @@ public class SudokuSolver16x16 {
         System.out.print("\n-----------------------------------------");
 
     }
-
+    
+    // check if number is in row
     private static boolean isNumberInRow(int[][] board, int number, int row) {
         for (int i = 0; i < GRID_SIZE; i++) {
             if (board[row][i] == number) {
@@ -87,7 +88,8 @@ public class SudokuSolver16x16 {
         return false;
     }
 
-    private static boolean isNumberInCollumn(int[][] board, int number, int col) {
+    // check if number is in column
+    private static boolean isNumberInColumn(int[][] board, int number, int col) {
         for (int i = 0; i < GRID_SIZE; i++) {
             if (board[i][col] == number) {
 
@@ -97,6 +99,7 @@ public class SudokuSolver16x16 {
         return false;
     }
 
+    // check if number is in box
     private static boolean isNumberInBox(int[][] board, int number, int row, int col) {
         int localBoxRow = row - row % 4;
         int localBoxCol = col - col % 4;
@@ -111,12 +114,14 @@ public class SudokuSolver16x16 {
         return false;
     }
 
+    // check if number is in valid placement
     private static boolean isValidPlacement(int[][] board, int number, int row, int col) {
-        return !isNumberInRow(board, number, row) && !isNumberInCollumn(board, number, col)
+        return !isNumberInRow(board, number, row) && !isNumberInColumn(board, number, col)
                 && !isNumberInBox(board, number, row, col);
 
     }
 
+    // process to solve board - backtrackking algorithm
     private static boolean solveBoard(int[][] board) {
         for (int row = 0; row < GRID_SIZE; row++) {
             for (int col = 0; col < GRID_SIZE; col++) {
@@ -125,6 +130,7 @@ public class SudokuSolver16x16 {
                         if (isValidPlacement(board, numberToTry, row, col)) {
                             board[row][col] = numberToTry;
 
+                            // the recursive call
                             if (solveBoard(board)) {
                                 return true;
                             } else {
